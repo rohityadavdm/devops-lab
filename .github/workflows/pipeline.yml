@@ -1,14 +1,29 @@
-name: DevOps Pipeline 
-on: 
-push: 
-branches: [ main ] 
-jobs: 
-build: 
-runs-on: ubuntu-latest 
-steps:  
-uses: actions/checkout@v3 
-run: ls -la 
-run: echo "Installing dependencies... done." 
-run: echo "Running tests... all tests passed." 
-run: echo "Building application... build successful." 
-run: echo "Pipeline finished. Ready for deployment."
+name: DevOps Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: List project files
+        run: ls -la
+
+      - name: Install dependencies
+        run: echo "Installing dependencies... done."
+
+      - name: Run tests
+        run: echo "Running tests... all tests passed."
+
+      - name: Build application
+        run: echo "Building application... build successful."
+
+      - name: Pipeline complete
+        run: echo "Pipeline finished. Ready for deployment."
